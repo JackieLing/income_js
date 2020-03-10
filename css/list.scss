@@ -1,0 +1,254 @@
+/*账目列表页面*/
+
+//引入样式模块
+@import 'mixin.scss';
+
+/*header*/
+#header{
+    width: 100%;
+    height: 50px;
+    background: #8AC0F7;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    line-height: 50px;
+    position: relative;
+    & > a {
+        width: 50px;
+        height: 50px;
+        display: block;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+    }
+    .icon-menudown {
+        float: left;
+    }
+    .icon-menuup {
+        float: left;
+    }
+    .icon-add {
+        float: right;
+    }
+}
+.menu {
+    width: 50%;
+    height: 40px;
+    background: #80c1fd;
+    position: absolute;
+    z-index: 200;
+    display: none;
+    @include opacity(0.6);
+    @include scale(0);
+    @include transform-origin(top left);
+    @include transition(transform 0.5s ease-in);
+    li {
+        float: left;
+        width: 50%;
+        height: 40px;
+        position: relative;
+    }
+    li:before,li:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-width: 4px;
+        border-style: solid;
+        border-color: transparent transparent #fff #fff;
+        position: absolute;
+        bottom: 0;
+    }
+    li:before {
+        border-color: transparent transparent #fff #fff;
+        left: 0;
+    }
+    li:after {
+        border-color: transparent #fff #fff transparent;
+        right: 0;
+    }
+    a{
+        color: #fff;
+        font-size: 16px;
+    }
+    .current {
+        color: #023467;
+    }
+    
+}
+.menu-down {
+    display: block;
+}
+.menu-transition {
+    @include scale(1);
+}
+.menu-up {
+    @include scale(0);
+}
+    
+/*list_item*/
+#list_item{
+    width:100%;
+}
+.list_wrap {
+    height: 100px;
+    position: relative;
+}
+.date_wrap{
+    width:100%;
+    height:30px;
+    background: #E4EDF7;
+    //background:-webkit-linear-gradient(left,#57e1bf,#0084ff);
+    //background:-moz-linear-gradient(left,#57e1bf,#0084ff);
+    padding-right: 2%;
+    position: relative;
+}
+.date{
+    position: absolute;
+    right: 2%;
+    color: #4ba9ff;
+    font-size: 14px;
+    line-height:30px;
+}
+.list_con{
+    width:100%;
+    height:70px;
+    background: #fff;
+    position:absolute;
+    z-index: 2;
+    left:0;
+    overflow: hidden;
+    border-bottom: 1px solid #7ecef4;
+    @include transition(transform 0.5s ease-in);
+}
+.list_img{
+    width:50px;
+    height:50px;
+    float:left;
+    margin:12px 0 22px 3%;
+    padding: 5px 0;
+    img {
+        max-width: 100%;
+    }
+}
+.list_num{
+    width:24.4%;
+    height:50px;
+    float:left;
+    margin:12px 0 2% 4.93%;
+    font-size:24px;
+    color:#35e47f;
+    line-height:50px;
+}
+.earn{ color:#35e47f;}
+.cost{ color:#ff364e;}
+.list_msg{
+    width:38%;
+    float:left;
+    margin:12px 0 auto;
+    font-size:18px;
+    color:#606060;
+    line-height: 50px;
+    padding-left: 2%;
+}
+.list_next{
+    width: 40px;
+    height: 50px;
+    float: right;
+    margin: 12px 0 22px;
+    span{
+        display: block;
+        width: 24px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+        color: #4ba9ff;
+    }
+}
+
+/*滑动出现的修改删除部分*/
+.list_change {
+    width: 70px;
+    height: 47px;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background: #fb6960;
+    font-size: 24px;
+    color: #fff;
+    padding-top: 23px;
+    text-align: center;
+    @include opacity(0.5);
+    @include transition(opacity 0.5s ease-in);
+}
+.icon-edit {
+    right: 70px;
+}
+.icon-delete {
+    right: 0;
+}
+.translate_in {
+    @include translate3d(-140px,0,0);
+}
+.change_in {
+    @include opacity(1);
+}
+
+/*字体图标部分*/
+.list_img span {
+        width: 40px;
+        height: 40px;
+        display: block;
+        cursor: pointer;
+        border-radius: 50%;
+        color: #fff;
+        font-family: 'icomoon';
+        font-size: 24px;
+        text-align: center;
+        line-height: 40px;
+}
+.icon-food {
+    background: #93dcb8;
+}
+.icon-dress {
+    background: #fdc403;
+}
+.icon-transport {
+    background: #6fb2de;
+}
+.icon-shopping {
+    background: #F39F61;
+}
+.icon-income {
+    background: #fe8988;
+}
+.icon-preview {
+    background: #80c1fd;
+}
+
+/*无账单页面内容*/
+.notext {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -25%;
+    font-size: 18px;
+    text-align: center;
+    div {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+.btn-add {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    display: inline-block;
+    background: #8AC0F7;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+}
